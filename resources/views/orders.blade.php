@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Success CRM | Orders</title>
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/orders.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <h1>Sweet Success</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ route('Admin') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="{{ route('Customers') }}"><i class="fas fa-users"></i> Customers</a></li>
+                    <li class="active"><a href="{{ route('Orders') }}"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="{{ route('Products') }}"><i class="fas fa-cookie"></i> Products</a></li>
+                    <li><a href="{{ route('Calendar') }}"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                    <li><a href="{{ route('Settings') }}"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <header>
+                <div class="page-title">
+                    <h1>Orders</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn primary-btn">
+                        <i class="fas fa-plus"></i> New Order
+                    </button>
+                </div>
+            </header>
+
+            <!-- Orders Content -->
+            <div class="orders-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Order Management</h2>
+                        <p>View and manage your bakery orders</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-actions">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="order-search" placeholder="Search orders...">
+                            </div>
+                            <div class="action-buttons">
+                                <select id="status-filter" class="select-input">
+                                    <option value="all">All Statuses</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <button class="btn icon-btn">
+                                    <i class="fas fa-calendar"></i>
+                                </button>
+                                <button class="btn outline-btn">
+                                    <i class="fas fa-filter"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="sortable-header">
+                                                Order ID <i class="fas fa-sort"></i>
+                                            </div>
+                                        </th>
+                                        <th>Customer</th>
+                                        <th>
+                                            <div class="sortable-header">
+                                                Date <i class="fas fa-sort"></i>
+                                            </div>
+                                        </th>
+                                        <th>Items</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Payment</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body">
+                                    <!-- Orders will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{asset('js/data.js')}}"></script>
+    <script src="{{asset('js/orders.js')}}"></script>
+</body>
+</html>

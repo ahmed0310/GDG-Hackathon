@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Sweet Success Bakery</title>
+    <link rel="stylesheet" href="{{ asset('css/customer-styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-birthday-cake"></i>
+            <h1>Sweet Success</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ route('cusHome') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('cusProducts') }}" class="active"><i class="fas fa-cookie"></i> Products</a>
+            <a href="orders.html"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a href="{{ route('cusCart') }}" class="cart-link">
+                <i class="fas fa-shopping-cart"></i> Cart
+                <span class="cart-count">0</span>
+            </a>
+        </nav>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="user-menu">
+            <img src="img/user-avatar.jpg" alt="User" class="avatar">
+            <span>John Doe</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="dropdown-menu">
+                <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                <a href="orders.html"><i class="fas fa-list"></i> My Orders</a>
+                <a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                <div class="divider"></div>
+                <a href="../landing.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <h1>Sweet Success</h1>
+            </div>
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="products.html" class="active"><i class="fas fa-cookie"></i> Products</a>
+            <a href="orders.html"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="../landing.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <main class="content">
+        <div class="page-header">
+            <h1>Our Products</h1>
+            <p>Discover our delicious range of freshly baked goods</p>
+        </div>
+
+        <div class="products-container">
+            <aside class="filters-sidebar">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <ul class="category-filters">
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="all" checked>
+                                <span>All Products</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="cakes">
+                                <span>Cakes</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="cupcakes">
+                                <span>Cupcakes</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="bread">
+                                <span>Bread</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="pastries">
+                                <span>Pastries</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="category" value="cookies">
+                                <span>Cookies</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-slider">
+                        <input type="range" min="0" max="100" value="100" class="slider" id="price-range">
+                        <div class="price-range-values">
+                            <span>$0</span>
+                            <span id="price-value">$100+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Dietary Options</h3>
+                    <ul class="dietary-filters">
+                        <li>
+                            <label>
+                                <input type="checkbox" name="dietary" value="gluten-free">
+                                <span>Gluten Free</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="dietary" value="vegan">
+                                <span>Vegan</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="dietary" value="nut-free">
+                                <span>Nut Free</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="dietary" value="sugar-free">
+                                <span>Sugar Free</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="btn primary-btn apply-filters-btn">Apply Filters</button>
+                <button class="btn outline-btn clear-filters-btn">Clear All</button>
+            </aside>
+
+            <div class="products-main">
+                <div class="products-header">
+                    <div class="products-count">Showing <span id="products-count">12</span> products</div>
+                    <div class="products-sort">
+                        <label for="sort-by">Sort by:</label>
+                        <select id="sort-by" class="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Cakes -->
+                    <div class="product-card" data-category="cakes" data-price="35">
+                        <div class="product-badge">Popular</div>
+                        <div class="product-image">
+                            <img src="img/products/chocolate-cake.jpg" alt="Chocolate Cake">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Chocolate Cake</h3>
+                            <p class="product-category">Cakes</p>
+                            <div class="product-price">$35.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="cakes" data-price="40">
+                        <div class="product-image">
+                            <img src="img/products/red-velvet-cake.jpg" alt="Red Velvet Cake">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Red Velvet Cake</h3>
+                            <p class="product-category">Cakes</p>
+                            <div class="product-price">$40.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="cakes" data-price="38">
+                        <div class="product-image">
+                            <img src="img/products/carrot-cake.jpg" alt="Carrot Cake">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Carrot Cake</h3>
+                            <p class="product-category">Cakes</p>
+                            <div class="product-price">$38.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Cupcakes -->
+                    <div class="product-card" data-category="cupcakes" data-price="18">
+                        <div class="product-image">
+                            <img src="img/products/vanilla-cupcakes.jpg" alt="Vanilla Cupcakes">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Vanilla Cupcakes (6)</h3>
+                            <p class="product-category">Cupcakes</p>
+                            <div class="product-price">$18.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="cupcakes" data-price="20">
+                        <div class="product-image">
+                            <img src="img/products/chocolate-cupcakes.jpg" alt="Chocolate Cupcakes">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Chocolate Cupcakes (6)</h3>
+                            <p class="product-category">Cupcakes</p>
+                            <div class="product-price">$20.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Bread -->
+                    <div class="product-card" data-category="bread" data-price="6.25">
+                        <div class="product-badge">New</div>
+                        <div class="product-image">
+                            <img src="img/products/sourdough-bread.jpg" alt="Sourdough Bread">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Sourdough Bread</h3>
+                            <p class="product-category">Bread</p>
+                            <div class="product-price">$6.25</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="bread" data-price="5.50">
+                        <div class="product-image">
+                            <img src="img/products/baguette.jpg" alt="Baguette">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Baguette</h3>
+                            <p class="product-category">Bread</p>
+                            <div class="product-price">$5.50</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="bread" data-price="7.50">
+                        <div class="product-image">
+                            <img src="img/products/multigrain-bread.jpg" alt="Multigrain Bread">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Multigrain Bread</h3>
+                            <p class="product-category">Bread</p>
+                            <div class="product-price">$7.50</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Pastries -->
+                    <div class="product-card" data-category="pastries" data-price="12">
+                        <div class="product-image">
+                            <img src="img/products/croissants.jpg" alt="Croissants">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Croissants (4)</h3>
+                            <p class="product-category">Pastries</p>
+                            <div class="product-price">$12.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="pastries" data-price="15">
+                        <div class="product-image">
+                            <img src="img/products/danish-pastries.jpg" alt="Danish Pastries">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Danish Pastries (4)</h3>
+                            <p class="product-category">Pastries</p>
+                            <div class="product-price">$15.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Cookies -->
+                    <div class="product-card" data-category="cookies" data-price="10">
+                        <div class="product-image">
+                            <img src="img/products/chocolate-chip-cookies.jpg" alt="Chocolate Chip Cookies">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Chocolate Chip Cookies (12)</h3>
+                            <p class="product-category">Cookies</p>
+                            <div class="product-price">$10.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="cookies" data-price="12">
+                        <div class="product-image">
+                            <img src="img/products/oatmeal-cookies.jpg" alt="Oatmeal Cookies">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3>Oatmeal Cookies (12)</h3>
+                            <p class="product-category">Cookies</p>
+                            <div class="product-price">$12.00</div>
+                            <button class="btn add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h2>Sweet Success</h2>
+                </div>
+                <p>Delicious baked goods made with the finest ingredients. Serving our community since 2010.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="orders.html">Order Tracking</a></li>
+                    <li><a href="returns.html">Returns & Refunds</a></li>
+                    <li><a href="shipping.html">Shipping Information</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Bakersville, CA 90210</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> contact@sweetsuccessbakery.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 7am-7pm, Sat: 8am-5pm, Sun: 9am-3pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sweet Success Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ asset('js/customer-script.js') }}"></script>
+</body>
+</html>
