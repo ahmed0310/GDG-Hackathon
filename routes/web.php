@@ -48,3 +48,7 @@ Route::get('/signup', function(){
     return view('login-signup');
 })->name('signup');
 Route::post('/login', [UserController::class,'checkLogin'])->name('login');
+
+Route::get('/voices', function(){
+    return view('voice-notes');
+})->name('Voice');

@@ -298,7 +298,6 @@
             const loginForm = document.getElementById('loginForm');
             const signupForm = document.getElementById('signupForm');
 
-            // Toggle between login and signup forms
             loginToggle.addEventListener('click', () => {
                 container.classList.remove('right-panel-active');
                 loginToggle.classList.add('active');
