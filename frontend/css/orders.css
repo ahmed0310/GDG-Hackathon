@@ -1,0 +1,12 @@
+/* Orders Page Specific Styles */
+
+.orders-container {
+    padding: 1.5rem 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .orders-container {
+        padding: 1rem;
+    }
+}
