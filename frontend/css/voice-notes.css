@@ -1,0 +1,628 @@
+/* Voice Notes Page Specific Styles */
+
+/* Voice Notes Filters */
+.voice-notes-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+.main-content{
+    margin: auto;
+    width: 80%;
+}
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.filter-select {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    min-width: 150px;
+}
+
+.search-filter {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.search-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Voice Notes Container */
+.voice-notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Voice Note Card */
+.voice-note-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.voice-note-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.voice-note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f9fafb;
+}
+
+.customer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.customer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.customer-details h3 {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
+}
+
+.order-reference {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.voice-note-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.voice-note-date {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.voice-note-duration {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.voice-note-content {
+    padding: 1rem;
+}
+
+.voice-note-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.voice-note-title i {
+    color: var(--primary-color);
+}
+
+.voice-note-title span {
+    font-weight: 500;
+}
+
+.voice-note-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.play-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.play-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.play-btn.playing {
+    background-color: var(--primary-hover);
+}
+
+.play-btn.playing i::before {
+    content: "\f04c"; /* fa-pause */
+}
+
+.voice-note-progress {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0;
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+.progress-time {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    align-self: flex-end;
+}
+
+.voice-note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border-color);
+    background-color: #f9fafb;
+}
+
+.voice-note-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background-color: #e5e7eb;
+    color: #4b5563;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.voice-note-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 0.25rem;
+    background-color: white;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Customer Filter Dialog */
+.customer-filter-dialog {
+    width: 500px;
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+.customer-search {
+    margin-bottom: 1rem;
+}
+
+.customers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.customer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    background-color: white;
+}
+
+.customer-item .customer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.customer-item .customer-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.customer-item .customer-details h4 {
+    font-size: 0.875rem;
+    margin: 0 0 0.25rem;
+}
+
+.customer-item .customer-details p {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Record Dialog */
+.record-dialog {
+    width: 550px;
+    max-width: 90%;
+}
+
+.record-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.tags-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    background-color: white;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-input {
+    flex: 1;
+    min-width: 100px;
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.tag .remove-tag-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    margin-left: 0.25rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+
+/* Voice Recorder */
+.voice-recorder {
+    margin-top: 1.5rem;
+}
+
+.recorder-idle {
+    display: flex;
+    justify-content: center;
+}
+
+/* Recording Active State */
+.recorder-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.recording-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.recording-pulse {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(239, 68, 68, 0.2);
+    position: relative;
+    animation: pulse 1.5s infinite;
+}
+
+.recording-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ef4444;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.recording-time {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ef4444;
+}
+
+.recording-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Preview State */
+.recorder-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview-audio {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.preview-play-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.preview-play-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.preview-play-btn.playing i::before {
+    content: "\f04c"; /* fa-pause */
+}
+
+.preview-progress {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Dialog Overlay */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-overlay.active {
+    display: flex;
+}
+
+/* Dialog */
+.dialog {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dialog-header h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.dialog-header h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.close-dialog-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--text-light);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.close-dialog-btn:hover {
+    background-color: var(--border-color);
+}
+
+.dialog-content {
+    padding: 1rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .voice-notes-filters {
+        flex-direction: column;
+    }
+    
+    .filter-group, .search-filter {
+        width: 100%;
+    }
+    
+    .voice-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .voice-note-meta {
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .voice-note-footer {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .voice-note-tags, .voice-note-actions {
+        width: 100%;
+    }
+    
+    .voice-note-actions {
+        justify-content: flex-end;
+    }
+    
+    .dialog {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+    }
+}
