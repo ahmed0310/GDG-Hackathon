@@ -382,7 +382,7 @@
                     </div>
                     <h3 class="login-title">Admin Login</h3>
                     <p class="login-description">Access the admin dashboard to manage your bakery operations.</p>
-                    <a href="{{ route('Admin') }}" class="btn">Login as Admin</a>
+                    <a href="{{ route('LoginSignup') }}" class="btn">Login as Admin</a>
                 </div>
                 
                 <div class="login-card">
@@ -391,7 +391,7 @@
                     </div>
                     <h3 class="login-title">Customer Portal</h3>
                     <p class="login-description">Login or sign up to place orders and track your purchases.</p>
-                    <a href="{{ route('cusHome') }}" class="btn btn-outline">Login / Sign Up</a>
+                    <a href="{{ route('LoginSignup') }}" class="btn btn-outline">Login / Sign Up</a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,3 +38,13 @@ Route::get('/customer/product', function () {
 Route::get('/customers/cart', function () {
     return view('customer.cart');
 })->name('cusCart');
+
+Route::get('/register', function () {
+    return view('login-signup');
+})->name('LoginSignup');
+
+Route::post('/signup', [UserController::class,'addUser'])->name('signup');
+Route::get('/signup', function(){
+    return view('login-signup');
+})->name('signup');
+Route::post('/login', [UserController::class,'checkLogin'])->name('login');
