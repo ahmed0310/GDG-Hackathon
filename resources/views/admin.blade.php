@@ -19,7 +19,7 @@
             <nav>
                 <ul>
                     <li class="active"><a href="{{ route('Admin') }}"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="{{ route(Customers) }}"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="{{ route('Customers') }}"><i class="fas fa-users"></i> Customers</a></li>
                     <li><a href="{{ route('Orders') }}"><i class="fas fa-shopping-cart"></i> Orders</a></li>
                     <li><a href="{{ route('Products') }}"><i class="fas fa-birthday-cake"></i> Products</a></li>
                     <li ><a href="{{ route('Voice') }}"><i class="fas fa-microphone"></i> Voice Notes</a></li>
